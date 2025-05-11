@@ -1,6 +1,9 @@
 # CBF Tracker: A Soft Actor-Critic-based Control Barrier Adaptation Scheme
 
 [![Jackal_Snake](https://img.youtube.com/vi/lvjgE2bBMsc/0.jpg)](https://www.youtube.com/watch?v=lvjgE2bBMsc)
+[![SPOT_Demo](https://img.youtube.com/vi/wFaubIU6uhQ/0.jpg)](https://www.youtube.com/watch?v=wFaubIU6uhQ)
+[![Deadend](https://img.youtube.com/vi/utMAkhJsmXw/0.jpg)](https://www.youtube.com/watch?v=utMAkhJsmXw)
+[![Deadend](https://img.youtube.com/vi/6ihhqLP12DM/0.jpg)](https://www.youtube.com/watch?v=6ihhqLP12DM)
 
 # Citation
 ```bibtex
