@@ -7,7 +7,7 @@
 
 <!--[![Jackal_Snake](https://img.youtube.com/vi/lvjgE2bBMsc/0.jpg)](https://www.youtube.com/watch?v=fkkkgomkX10)      |  [![SPOT_Demo](https://img.youtube.com/vi/wFaubIU6uhQ/0.jpg)](https://youtu.be/L13k44-krcc) |  -->
 <!--[![Deadend](https://img.youtube.com/vi/utMAkhJsmXw/0.jpg)](https://www.youtube.com/watch?v=fkkkgomkX10)       |  [![Basement](https://img.youtube.com/vi/6ihhqLP12DM/0.jpg)](https://www.youtube.com/watch?v=fkkkgomkX10)    |  -->
-
+Note: As I have just released this repository, I will continue to work to improve the installation and training pipeline processes (time permitting)!
 
 # Citation
 ```bibtex
@@ -71,7 +71,7 @@ Evaluation:
 python gazebo_run.py --eval
 ```
 
-You can also optionally use the `--world_idx` to pass in a world number for a specific training setup. 
+You can also optionally use the `--world_idx` to pass in a world number for a specific training setup. All training parameters can be found in [train.yaml](./train.yaml).
 
 ## Adjusting Parameters
 There are several knobs than can be tuned for the trajectory planning process, and they can be found in [planner.yaml](./params/planner.yaml).
