@@ -1,0 +1,14 @@
+<launch>
+  <arg name="db_filename" default=""/>
+
+  <!-- 
+    pkg="mypackage" Package of node. 
+    type="nodetype" There must be a corresponding executable with the same name. 
+    name="nodename" Note: Name cannot contain a namespace. Use the ns attribute instead.
+  -->
+  
+  <node pkg="amrl_logging" type="sqlite_node" name="logging_node" output="screen">
+    <param name="db_filename" value="$(arg db_filename)"/>
+  </node>
+  
+</launch>

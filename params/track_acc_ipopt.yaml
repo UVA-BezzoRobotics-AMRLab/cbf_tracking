@@ -1,0 +1,24 @@
+# IPOPT Horizon MPC parameters
+frame_id: "map"
+use_vicon: false
+mpc_steps: 15
+controller_frequency: 10
+
+# cost function weights
+w_cte: 1.0
+w_pos: 1.3
+w_linvel: .8
+w_etheta: 1.0
+w_angvel: 0.3
+w_angvel_d: 1.0
+
+# constraints
+# max_linvel: 1.8
+# max_linacc: 3.3
+# max_angvel: 1.5
+
+# CBF params
+use_cbf: false
+cbf_alpha: .4
+cbf_colinear: .05
+cbf_padding: .05

@@ -1,0 +1,30 @@
+<launch>
+
+    <arg name="barn" default="false" />
+    <arg name="barn_dist" default="10.0" />
+    <arg name="param_file" default="$(find cbf_tracking)/params/planner.yaml" />
+
+    <rosparam file="$(find cbf_tracking)/params/planner.yaml" command="load" ns="robust_planner/" />
+    <rosparam file="$(find cbf_tracking)/params/robo_params.yaml" command="load" ns="robust_planner/" />
+
+    <!-- <node name="robust_planner" pkg="robust_fast_navigation" type="robust_planner_gurobi" > -->
+    <node name="robust_planner" pkg="cbf_tracking" type="planner" output="screen">
+    <!--<node name="robust_planner" pkg="cbf_tracking" type="planner" 
+           launch-prefix="lldb" output="screen">  -->
+
+           <!-- Trajectory Generation -->
+        <!-- <param name="plan_once" value="true" /> -->
+        <param name="is_barn" value="$(arg barn)" />
+        <param name="barn_goal_dist" value="$(arg barn_dist)" />
+        
+        <remap from="/planner_goal" to="/move_base_simple/goal" />
+        <remap from="/odometry/filtered" to="/gmapping/odometry" />
+    </node>
+
+    <!-- <rosparam file="$(find cbf_tracking)/params/local_costmap_params.yaml" command="load" ns="robust_planner/local_costmap/" /> -->
+    <rosparam file="$(find cbf_tracking)/params/global_costmap_params.yaml" command="load" ns="robust_planner/global_costmap/" />
+
+ <!-- Put this incldue file here because launching at same time as MPC doesnt register map... -->
+	<include file="$(find cbf_tracking)/launch/distance_map.launch" /> 
+    
+</launch>

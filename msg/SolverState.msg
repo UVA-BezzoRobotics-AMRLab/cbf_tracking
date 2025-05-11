@@ -1,0 +1,6 @@
+nav_msgs/Path jpsPath
+geometry_msgs/PoseArray polys
+trajectory_msgs/JointTrajectory trajectory
+trajectory_msgs/JointTrajectoryPoint initialPVA
+trajectory_msgs/JointTrajectoryPoint finalPVA
+std_msgs/Int32 status

@@ -1,0 +1,41 @@
+# Planner logic params
+planner_frequency: .3
+lookahead: .35
+max_deviation: 10
+simplify_jps: true
+jps_hysteresis: false
+traj_dt: .05
+failsafe_count: 4
+plan_in_free: true
+max_dist_horizon: 5
+frame: "map"
+teleop: false
+max_solve_time: .25
+
+use_arclen: true
+
+recovery_thresh: 9
+recovery_horizon: 20
+recovery_samples: 10
+
+is_barn: false
+barn_goal_dist: 10.0
+
+# Physical dynamics parameters
+# v_max: 1.2
+# a_max: 2.6
+# j_max: 4.0
+# w_max: 2.0
+
+# Solver
+n_polys: 6
+solver_traj_dt: .05
+force_final_const: true
+factor_init: 1.0
+factor_final: 10.0
+factor_increment: 1.0
+threads: 0
+verbose: 0
+
+# For debug
+plan_once: false

@@ -1,0 +1,6 @@
+# Request
+cbf_tracking/SolverState state
+---
+# Response
+uint32 success
+geometry_msgs/Point[] control_pts

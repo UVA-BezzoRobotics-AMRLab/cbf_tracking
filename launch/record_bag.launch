@@ -1,0 +1,14 @@
+<launch>
+    <arg name="bag_name" default="trial" />
+    <arg name="path" default="$(find cbf_tracking)/bags/" />
+
+    <node pkg="rosbag" type="record" name="rosbag_record_trial" respawn="true" 
+        args="-O $(arg path)/$(arg bag_name) -a"/>
+    <!-- <node pkg="rosbag" type="record" name="rosbag_record_trial" respawn="true" 
+        args="-O $(arg path)/$(arg bag_name) 
+        /gmapping/odometry /map /MINCO_path /robust_planner/global_costmap/footprint /mpc_prediction
+        /visualizer/edge /visualizer/mesh /front/scan /jpsPath /tf" /> -->
+    <!-- <node pkg="rosbag" type="record" name="rosbag_record_trial" respawn="true" 
+        args="-O $(arg path)/$(arg bag_name) /solverState"/> -->
+
+</launch>

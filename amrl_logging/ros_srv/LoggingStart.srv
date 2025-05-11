@@ -1,0 +1,7 @@
+string table_name
+string topic_name
+string[] label_headers
+string[] integer_headers
+string[] real_headers
+---
+bool success

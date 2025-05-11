@@ -1,0 +1,41 @@
+<launch>
+	<arg name="odomTopic" default="/gmapping/odometry" />
+	<arg name="cmdTopic" default="/cmd_vel" />
+
+    <arg name="mpc_type" value="track_acc_nlopt" /> 
+    <!-- <arg name="mpc_type" value="track_acc_ipopt" /> -->
+
+    <rosparam file="$(find cbf_tracking)/params/$(arg mpc_type).yaml" command="load" ns="jackal_mpc_track/" />
+    <rosparam file="$(find cbf_tracking)/params/robo_params.yaml" command="load" ns="jackal_mpc_track/" />
+
+	<node name="jackal_mpc_track" pkg="cbf_tracking" type="jackal_mpc_tracking" output="screen">
+	<!-- <node name="jackal_mpc_track" pkg="cbf_tracking" type="jackal_mpc_tracking" 
+		launch-prefix="lldb" output="screen"> -->
+	<!-- <node name="jackal_mpc_track" pkg="cbf_tracking" type="jackal_mpc_tracking" 
+		launch-prefix="valgrind -s" output="screen"> -->
+		
+		<param name="mpc_type" value="$(arg mpc_type)" />
+
+		<!-- POS MPC Params -->
+		<param name="pos_mpc_w_pos" value="3.0" />
+		<param name="pos_mpc_w_angvel" value=".5" />
+		<param name="pos_mpc_w_vel" value="1.0" />
+		<param name="pos_mpc_w_angvel_d" value=".5" />
+		<param name="pos_mpc_w_linvel_d" value="1.0" />
+
+		<param name="pos_mpc_max_linvel" value=".5" />
+		<param name="pos_mpc_max_angvel" value="1.0" />
+
+
+		<remap from="/odometry/filtered" to="$(arg odomTopic)" />
+		<remap from="/cmd_vel" to="$(arg cmdTopic)" />
+	</node>
+
+	<rosparam file="$(find cbf_tracking)/params/local_costmap_params.yaml" command="load" ns="local_costmap/local_costmap/" />
+	<node name="local_costmap" pkg="cbf_tracking" type="local_costmap" output="screen" />
+
+    <include file="$(find cbf_tracking)/launch/gmapping.launch" />
+
+    <node name="publish_pf_pose" pkg="cbf_tracking" type="publish_pf_pose" output="screen" />
+
+</launch>

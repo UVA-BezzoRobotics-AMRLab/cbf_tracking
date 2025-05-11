@@ -1,0 +1,2 @@
+# amrl_logging
+This ROS package is designed to allow for data logging to a local SQLite database.

@@ -1,0 +1,6 @@
+# Physical robot parameters
+v_max: 2.0
+a_max: 6.0
+j_max: 150.0
+w_max: 1.8
+anga_max: 6.283 # angular acceleration

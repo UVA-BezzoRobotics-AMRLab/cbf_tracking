@@ -1,0 +1,4 @@
+string table_name
+---
+bool table_existed
+bool success

@@ -1,0 +1,27 @@
+# NLOPT Horizon MPC parameters
+frame_id: "map"
+use_vicon: false
+mpc_steps: 15
+controller_frequency: 10
+
+# cost function weights
+w_cte: 1.0
+w_pos: 2.3
+w_etheta: 1.0
+w_linvel: .8
+w_angvel: 0.3
+w_linvel_d: .5
+w_angvel_d: 1.0
+
+# CBF params
+use_cbf: true
+dynamic_alpha: false
+cbf_alpha: .5
+cbf_colinear: .01
+cbf_padding: .05
+
+# proportional controller params
+prop_gain: .8
+# if angle between robot and trajectory is greater than this,
+# use proportional controller to align
+prop_angle_thresh: 0.3491 # 20 degrees

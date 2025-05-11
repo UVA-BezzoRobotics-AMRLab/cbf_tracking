@@ -1,0 +1,14 @@
+# Request
+float64 theta
+float64 vel
+float64 acc
+float64 ang_vel
+float64 obs_dist
+float64 heading_dist
+float64 progress
+float64 h_val
+float64 alpha
+---
+# Response
+bool success
+float64 alpha_dot

@@ -1,0 +1,14 @@
+<launch>
+  <arg name="db_filename" default="/home/patrick/uva/data/DualWriteTest.db" />
+
+
+  <!-- SQLite Logging Node -->
+  <include file="$(find amrl_logging)/ros_launch/logging.launch">
+    <arg name="db_filename" value="$(arg db_filename)" />
+  </include>
+
+  <!-- Example Nodes -->
+  <node name="write_test_1" pkg="amrl_logging" type="log_write_cpp" output="screen" />
+  <node name="write_test_2" pkg="amrl_logging" type="log_write_cpp_2" output="screen" />
+
+</launch>

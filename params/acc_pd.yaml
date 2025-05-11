@@ -1,0 +1,19 @@
+# Acceleration PD Controller Parameters
+frame_id: "map"
+controller_frequency: 10
+
+# PD Controller Params
+kpv: 2.6
+kpd: 3.0
+kdv: .3
+
+kpw: 4.0
+kdw: .5
+kct: 1.2
+kg: 1.5
+
+# CBF Params
+use_cbf: true
+cbf_alpha: .1
+cbf_colinear: .01
+cbf_padding: .05

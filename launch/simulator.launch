@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="world_name" default="$(find jackal_helper)/worlds/BARN/world_0.world" />
+    <arg name="corridor" default="false" />
+
+    <!-- <rosparam command="delete" param="/" /> -->
+
+    <node name="unicycle_sim" pkg="cbf_tracking" type="unicycle_sim" output="screen">
+        <param name="x" value="-2.25" />
+        <param name="y" value="-2.0" />
+        <param name="yaw" value="1.5707" />
+        <!--<param name="x" value="-2.25" />-->
+        <!--<param name="y" value="8" />-->
+        <!--<param name="yaw" value="-1.5707" />-->
+        <param name="frame_id" value="odom" />
+
+        <!-- <remap from="/odometry/filtered" to="/gmapping/odometry" /> -->
+        <remap from="/map" to="/ground_truth_map" />
+    </node>
+
+    <node name="pub_barn_grid" pkg="cbf_tracking" type="gazebo_to_map.py" output="screen" >
+        <param name="world_file" value="$(arg world_name)" />
+        <param name="corridor" value="$(arg corridor)" />
+        <remap from="/map" to="/ground_truth_map" />
+    </node>
+
+    <node name="lidar_simulator" pkg="cbf_tracking" type="lidar_simulator" output="screen" >
+        <remap from="/map" to="/ground_truth_map" />
+    </node>
+
+    <node name="laser_base_link_transform" pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 0 /base_link /front_laser 10" />
+
+    <node name="pub_occ_grid" pkg="cbf_tracking" type="pub_occ_grid.py" />
+</launch>
